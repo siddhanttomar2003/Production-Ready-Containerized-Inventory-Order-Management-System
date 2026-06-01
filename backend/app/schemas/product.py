@@ -1,10 +1,16 @@
-from marshmallow import Schema, ValidationError, fields, validates
+from marshmallow import Schema, ValidationError, fields, validate, validates
 
 
 class ProductSchema(Schema):
     id = fields.Int(dump_only=True)
     name = fields.Str(required=True)
-    sku = fields.Str(required=True)
+    sku = fields.Str(
+        required=True,
+        validate=validate.Regexp(
+            r"^[A-Z0-9]+(-[A-Z0-9]+)+$",
+            error="SKU must be in uppercase alphanumeric format with hyphens (e.g., LAP-1001)."
+        )
+    )
     price = fields.Decimal(required=True, as_string=False)
     quantity_in_stock = fields.Int(required=True)
 
@@ -16,7 +22,12 @@ class ProductSchema(Schema):
 
 class ProductUpdateSchema(Schema):
     name = fields.Str()
-    sku = fields.Str()
+    sku = fields.Str(
+        validate=validate.Regexp(
+            r"^[A-Z0-9]+(-[A-Z0-9]+)+$",
+            error="SKU must be in uppercase alphanumeric format with hyphens (e.g., LAP-1001)."
+        )
+    )
     price = fields.Decimal(as_string=False)
     quantity_in_stock = fields.Int()
 

@@ -1,8 +1,10 @@
+from app.routes.auth import auth_bp
 from app.routes.customers import customers_bp
 from app.routes.dashboard import dashboard_bp
 from app.routes.health import health_bp
 from app.routes.orders import orders_bp
 from app.routes.products import products_bp
+from app.routes.suppliers import suppliers_bp
 
 
 def register_blueprints(app):
@@ -11,3 +13,5 @@ def register_blueprints(app):
     app.register_blueprint(customers_bp, url_prefix="/api/customers")
     app.register_blueprint(orders_bp, url_prefix="/api/orders")
     app.register_blueprint(dashboard_bp, url_prefix="/api/dashboard")
+    app.register_blueprint(suppliers_bp, url_prefix="/api/suppliers")
+    app.register_blueprint(auth_bp, url_prefix="/api/auth")
