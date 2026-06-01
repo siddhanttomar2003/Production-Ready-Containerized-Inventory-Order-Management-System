@@ -2,6 +2,10 @@
 
 LogiTrack is a modern, full-stack, containerized Inventory & Order Management System. It features a premium, responsive glassmorphism web dashboard on the frontend, backed by a scalable Flask API and a PostgreSQL database.
 
+## Demo Video
+
+[Demo Video](https://drive.google.com/file/d/1oehhe7H9xPjdZNlZyPSkKvNGDPm5dZyC/view?usp=sharing)
+
 ---
 
 ## 🚀 Key Features
